@@ -8,7 +8,7 @@ import (
 )
 
 func TestEnumerateSubDomains(t *testing.T) {
-	os.Setenv("DOMAIN", "foobar.com")
+	os.Setenv("DOMAIN", "hackerone.com")
 	defer os.Unsetenv("DOMAIN")
 
 	result, err := EnumerateSubDomains()
@@ -21,5 +21,5 @@ func TestEnumerateSubDomains(t *testing.T) {
 	}
 
 	arr1 := regexp.MustCompile("\n").Split(result, -1)
-	fmt.Println("Enumerate: ", len(arr1))
+	fmt.Println("Enumerate: ", len(arr1)-1)
 }
